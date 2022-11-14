@@ -1,38 +1,84 @@
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Med Care</title>
-    <link rel="stylesheet" href="login.css">
-</head>
-
-<body>
-    <header class="item1">
-        <a href=index.php><img src="images/MicrosoftTeams-image.png" width="100px" height="100px" alt="Logo for Med Care"></a>
-    </header>
-
-    <main class="item3">
-        <form action="profile.php" method="post">
-
-            Login/Signup<br><br>
-           
-            Name<br>
-            <input name="Fname" placeholder="Name" type="text" size="30" style="height: 25px;" value="<?php echo (isset($Fname)) ? $Fname : ""  ?>">
-            <span style="color:red"><?php echo (isset($errorFname)) ? $errorFname : ""; ?></span><br>
-            <br>
-
-            Password <br>
-            <input name="password" placeholder="Enter Password" type="password" size="30" style="height: 25px;" value="<?php echo (isset($password)) ? $password : ""  ?>">
-            <span style="color:red"><?php echo (isset($errorpassword)) ? $errorpassword : ""; ?></span><br>
-            <br><br>
-
-            <input type="submit" name="submit" value="Send">
-
-        </form>
-
-    </main>
-
-    <footer class="item5">
-        <p>Made by "Ahmmed Shahriar Shazan - 201311010 <br> Md. Arnob Mustakim - 201311015 <br> Shreyasee Chakraborty - 201311018 <br>- 9th Semester - 23rd Batch"</p>
-    </footer>
-</body>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Login and Registration || Medcare</title>
+      <link rel="stylesheet" href="Style.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+   <body>
+      <div class="wrapper">
+         <div class="title-text">
+            <div class="title login">
+               Login Form
+            </div>
+            <div class="title signup">
+               SignUp Form
+            </div>
+         </div>
+         <div class="form-container">
+            <div class="slide-controls">
+               <input type="radio" name="slide" id="login" checked>
+               <input type="radio" name="slide" id="signup">
+               <label for="login" class="slide login">Login</label>
+               <label for="signup" class="slide signup">Signup</label>
+               <div class="slider-tab"></div>
+            </div>
+            <div class="form-inner">
+               <form action="#" class="login">
+                  <div class="field">
+                     <input type="text" placeholder="Email Address" required>
+                  </div>
+                  <div class="field">
+                     <input type="password" placeholder="Password" required>
+                  </div>
+                  <div class="pass-link">
+                     <a href="#">Forgot Password?</a>
+                  </div>
+                  <div class="field btn">
+                     <div class="btn-layer"></div>
+                     <input type="submit" value="Login">
+                  </div>
+                  <div class="signup-link">
+                     Not a member? <a href="">SignUp now</a>
+                  </div>
+               </form>
+               <form action="#" class="signup">
+                  <div class="field">
+                     <input type="text" placeholder="Email Address" required>
+                  </div>
+                  <div class="field">
+                     <input type="password" placeholder="Password" required>
+                  </div>
+                  <div class="field">
+                     <input type="password" placeholder="Confirm Password" required>
+                  </div>
+                  <div class="field btn">
+                     <div class="btn-layer"></div>
+                     <input type="submit" value="Signup">
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+      <script>
+         const loginText = document.querySelector(".title-text .login");
+         const loginForm = document.querySelector("form.login");
+         const loginBtn = document.querySelector("label.login");
+         const signupBtn = document.querySelector("label.signup");
+         const signupLink = document.querySelector("form .signup-link a");
+         signupBtn.onclick = (()=>{
+           loginForm.style.marginLeft = "-50%";
+           loginText.style.marginLeft = "-50%";
+         });
+         loginBtn.onclick = (()=>{
+           loginForm.style.marginLeft = "0%";
+           loginText.style.marginLeft = "0%";
+         });
+         signupLink.onclick = (()=>{
+           signupBtn.click();
+           return false;
+         });
+      </script>
+   </body>
+</html>
