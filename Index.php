@@ -1,3 +1,9 @@
+<?php
+
+    require "database.php";
+    $name=$email=$phone=$address="";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,11 +23,9 @@
             <br>
             <a class="login"href="login.php">LOGIN/SIGNUP</a>
         </main>
-
         <footer class="item5">
         <p>Made by "Ahmmed Shahriar Shazan - 201311010 <br> Md. Arnob Mustakim - 201311015 <br> Shreyasee Chakraborty - 201311018 <br>- 9th Semester - 23rd Batch"</p>
     
         </footer>
-
 </body>
 </html>
