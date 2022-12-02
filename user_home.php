@@ -17,10 +17,11 @@
     </head>
     <body>
         <div class="container">
-            <a class="float-right" href="login.php">Logout</a>
-            <h1>Welcome <?php /*echo $_SESSION['name'];*/?></h1>
-            <a href="doc_info.php" class="btn btn-info" role="button">Doctor Informations</a>
-            <a href="#" class="btn btn-danger" role="button">Blood Donor List</a>
-            <a href="user_update.php" class="btn btn-success" role="button">Update Informations</a>
+            <a href="login.php" class="btn btn-danger btn-xs" role="button">Logout</a>
+            <h1>Welcome <?=$_SESSION['name'];?></h1>
+            <a href="doc_info.php" class="btn btn-primary" role="button">Doctor Informations</a>
+            <a href="donor_info.php" class="btn btn-danger" role="button">Blood Donor List</a>
+            <a href="reg_bld_dnr.php" class="btn btn-info" role="button">Register as Blood Donor</a>
+            <a href="user_profile.php" class="btn btn-success" role="button">Profile</a>
         </div>
     </body>

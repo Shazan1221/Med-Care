@@ -1,7 +1,7 @@
 <?php
     
     require "database.php";
-    if(isset( $_POST['email'])&& isset($_POST['password']))
+    if(isset($_POST['email'])&& isset($_POST['password']))
     {
         session_start();
 
@@ -10,17 +10,17 @@
 
         $result = mysqli_query($conn,"SELECT * FROM user_login WHERE email='$email' && password='$password'");
     
-        $result = mysqli_fetch_array($result);
-        
-            
+        $result = mysqli_fetch_array($result);        
     }
+    
     if($result)
             {
-                
-                header('location:index.php');
+                $_SESSION['email'] = $email;
+                $_SESSION['name'] = $result['name'];
+                header('location: user_home.php');
             }
             else
             {
-            header('location:Login.php');
+            header('location: login.php');
             }
 ?>

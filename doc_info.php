@@ -19,11 +19,12 @@
         <div class="container">
             <h1>All doctors information are given below</h1>
 
-        <?php
-        $user=$_SESSION['username'];
-        $query=mysqli_query($conn,"select * from user_login where name='$name'");
-        $row=mysqli_fetch_array($query);
-        ?>
+            <?php
+            $user=$_SESSION['username'];
+            $query=mysqli_query($conn,"select * from user_login where name='$name'");
+            $row=mysqli_fetch_array($query);
+            ?>
+        
 
     <?php
         $user=$_SESSION['username'];
@@ -37,8 +38,9 @@
 
         <tr>
             <th>Doctors Name</th>
-            <th>Address</th>
-            <th>Email</th>
+            <th>Specialty</th>
+            <th>Degree</th>
+            <th>Chamber Location</th>
             <th>Phone</th>
         </tr>
 
@@ -50,8 +52,9 @@
         ?> 
             <tr>
                 <td><?php echo $row["name"];?></td>
+                <td><?php echo $row["specialty"];?></td>
+                <td><?php echo $row["degree"];?></td>
                 <td><?php echo $row["address"];?></td>
-                <td><?php echo $row["email"];?></td>
                 <td><?php echo $row["phone"];?></td>
             </tr>
         <?php

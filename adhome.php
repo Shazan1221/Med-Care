@@ -1,10 +1,10 @@
 <?php
 
     require "database.php";
-    $name=$email=$phone=$address="";
+    $name=$field=$degree=$address="";
 
     session_start();
-    if(!isset($_SESSION['username']))
+    if(!isset($_SESSION['adminname']))
     {
         header('location:admin.php');
     }
@@ -17,22 +17,23 @@
     </head>
     <body>
         <div class="container">
-            <a class="float-right" href="ad_logout.php">Logout</a>
-            <h1>Welcome <?php echo $_SESSION['username'];?></h1>
+            <a href="ad_logout.php" class="btn btn-danger btn-xs" role="button">Logout</a>
+            <h1>Welcome <?php echo $_SESSION['adminname'];?></h1>
 
         <?php
-        $user=$_SESSION['username'];
+        $user=$_SESSION['adminname'];
         $query=mysqli_query($conn,"select * from admin_login where name='$user'");
         $row=mysqli_fetch_array($query);
         //$id=$row['id'];
         if(isset($_REQUEST["submit"]))
         {
             $name=$_POST["name"];
+            $field=$_POST["specialty"];
+            $degree=$_POST["degree"];
             $address=$_POST["address"];
-            $email=$_POST["email"];
             $phone=$_POST["phone"];
     
-            if(empty($name) || empty($address) || empty($email) || empty($phone))
+            if(empty($name) || empty($field) || empty($degree) || empty($address) || empty($phone))
             {
                 echo "Please insert all informations";
             }
@@ -41,19 +42,21 @@
                 echo "Your Information Inserted successfully";
             }
     
-            $query=mysqli_query($conn, "insert into doctor_info (name, address, email, phone) values('$name','$address','$email', '$phone')");
+            $query=mysqli_query($conn, "insert into doctor_info (name, specialty, degree, address, phone) values('$name','$field','$degree','$address', '$phone')");
         }
         ?>
 
         <div class="info">
         <form action="" method="POST">
         <br><h2>Please Insert Required Informations</h2>
-        <br>Name<br>
+        <br>Doctors Name<br>
         <input name="name" placeholder="Doctors Name" type="text">
-        <br>Address <br>
-        <input name="address" placeholder="Address" type="text">
-        <br>Email <br>
-        <input name="email" placeholder="abcd@gmail.com" type="text">
+        <br>Specialty <br>
+        <input name="specialty" placeholder="specialty" type="text">
+        <br>Degree <br>
+        <input name="degree" placeholder="MBBS/FCPS" type="text">
+        <br>Chamber Location<br>
+        <input name="address" placeholder="" type="text">
         <br>Phone <br>
         <input name="phone" placeholder="+880" type="int">
 

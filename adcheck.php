@@ -16,7 +16,7 @@
     }
     if($result)
             {
-                $_SESSION['username'] = $name; 
+                $_SESSION['adminname'] = $name; 
                 header('location: adhome.php');
             }
             else
